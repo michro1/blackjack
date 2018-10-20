@@ -40,17 +40,18 @@ with three different policies:
 For the agent to learn I applied Q-learning, SARSA and Monte Carlo. Afterwards I analyzed which method, which policy and which parameters yielded the best results.
 
 ### Q-learning
-$$ Q(s,a) \leftarrow Q(s,a) + \alpha * [r + \gamma * max_{a'} Q(s',a') - Q(s,a)] $$
+<a href="https://www.codecogs.com/eqnedit.php?latex=Q(s,a)&space;\leftarrow&space;Q(s,a)&space;&plus;&space;\alpha&space;*&space;[r&space;&plus;&space;\gamma&space;*&space;max_{a'}&space;Q(s',a')&space;-&space;Q(s,a)]" target="_blank"><img src="https://latex.codecogs.com/gif.latex?Q(s,a)&space;\leftarrow&space;Q(s,a)&space;&plus;&space;\alpha&space;*&space;[r&space;&plus;&space;\gamma&space;*&space;max_{a'}&space;Q(s',a')&space;-&space;Q(s,a)]" title="Q(s,a) \leftarrow Q(s,a) + \alpha * [r + \gamma * max_{a'} Q(s',a') - Q(s,a)]" /></a>  
+
 where *s* and *a* denote the previous and *s'* and *a'* the current state and action respectively. *Q* is the state-action value, which is always updated with the previous state-action combinations. &alpha; is the learning rate, *r* the instant reward &gamma; the discount factor which is set equal to 1 for simplificaiton.  
 
 The first term on the right-hand side of the equation is the expected reward and the the second term is the actual reward.
 
 ### SARSA
-$$ Q(s,a) \leftarrow Q(s,a) + \alpha * [r + \gamma * Q(s',a') - Q(s,a)] $$
+<a href="https://www.codecogs.com/eqnedit.php?latex=Q(s,a)&space;\leftarrow&space;Q(s,a)&space;&plus;&space;\alpha&space;*&space;[r&space;&plus;&space;\gamma&space;*&space;Q(s',a')&space;-&space;Q(s,a)]" target="_blank"><img src="https://latex.codecogs.com/gif.latex?Q(s,a)&space;\leftarrow&space;Q(s,a)&space;&plus;&space;\alpha&space;*&space;[r&space;&plus;&space;\gamma&space;*&space;Q(s',a')&space;-&space;Q(s,a)]" title="Q(s,a) \leftarrow Q(s,a) + \alpha * [r + \gamma * Q(s',a') - Q(s,a)]" /></a>
 
 SARSA is very similar to Q-learning but SARSA takes the effects of exploration into account when it updates the Q-values which can help avoid catastrohic results.
 
 ### Monte Carlo
-$$ V(s) \leftarrow V(s) + \alpha * [R - V(s)] $$
+<a href="https://www.codecogs.com/eqnedit.php?latex=V(s)&space;\leftarrow&space;V(s)&space;&plus;&space;\alpha&space;*&space;[R&space;-&space;V(s)]" target="_blank"><img src="https://latex.codecogs.com/gif.latex?V(s)&space;\leftarrow&space;V(s)&space;&plus;&space;\alpha&space;*&space;[R&space;-&space;V(s)]" title="V(s) \leftarrow V(s) + \alpha * [R - V(s)]" /></a>  
 
 Monte Carlo averages the sample returns without requiring previous knowledge of the dynamics of the environment. The steps are increment, analyzing the outcomes episode by episode.
